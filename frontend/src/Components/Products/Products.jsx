@@ -104,30 +104,30 @@ function Product() {
       {/* Menu Flutuante (Modal) */}
       {selectedProduct && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white p-6 rounded-lg shadow-lg w-11/12 text-sm relative lg:h-3/6 lg:w-8/12 2xl:h-3/6 2xl:w-8/12">
+          <div className="bg-white p-3 rounded-lg shadow-lg w-11/12 max-w-md md:max-w-lg lg:max-w-xl max-h-[90vh] flex flex-col overflow-y-auto relative">
             <button
               className="absolute top-4 right-4 text-gray-600 hover:text-gray-800 sm:right-20 "
               onClick={closeProductModal}
             >
               ❌
             </button>
-            <h2 className="text-2xl font-bold mb-2 relative">{selectedProduct.name}</h2>
-            <div className="ssm:flex ">
+            <h2 className="text-2xl font-bold mb-2">{selectedProduct.name}</h2>
+            <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4">
               <img
                 src={selectedProduct.image_url}
                 alt={selectedProduct.name}
-                className="w-full h-80 object-contain object-left rounded-md"
+                className="w-full sm:w-1/2 h-auto max-h-60 object-contain rounded-md"
               />
-              <div className="pl-2 flex-col 2xl:">
-                <p className="text-gray-600 pt-3 xl:text-base 2xl:text-lg">{selectedProduct.details}</p>
-                <p className="text-gray-600 font-bold mt-2 xl:text-base xl:pt-5 2xl:text-lg">
+              <div className="flex flex-col">
+                <p className="text-gray-600 text-sm">{selectedProduct.details}</p>
+                <p className="text-gray-600 font-bold mt-2 ">
                   R$ {selectedProduct.price.toFixed(2)}
                 </p>
-                <span className="text-sm text-gray-500 xl:text-base ">
+                <span className="text-sm text-gray-500  ">
                   Vendido por: {selectedProduct.seller}
                 </span>
                 <div className="mt-2">
-                  <span className="font-bold xl:text-base 2xl:text-lg">Tamanhos:</span>{" "}
+                  <span className="font-bold text-sm">Tamanhos:</span>{" "}
                   {selectedProduct.available_sizes.join(", ")}
                 </div>
               </div>
